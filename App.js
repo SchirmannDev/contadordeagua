@@ -2,6 +2,36 @@ import React, { Component } from "react";
 import { View, Text, StyleSheet, ImageBackground, Button } from "react-native";
 
 export default class contadordeagua extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { consumido: 0, status: "Ruim", pct: "0" };
+
+    this.addCopo = this.addCopo.bind(this);
+    this.atualizar = this.atualizar.bind(this);
+  }
+
+  atualizar() {
+    let s = this.state;
+    s.pct = Math.floor(s.consumido / 2000) * 100; //+'%';
+
+    if (s.pct >= 100) {
+      s.status = "Bom.";
+    } else {
+      s.status = "Ruim";
+    }
+
+    this.setState(s);
+  }
+
+  addCopo() {
+    let s = this.state;
+    s.consumido += 200;
+
+    this.setState(s);
+
+    this.atualizar();
+  }
+
   render() {
     return (
       <View style={styles.body}>
@@ -20,22 +50,22 @@ export default class contadordeagua extends Component {
               <View style={styles.area}>
                 <Text style={styles.areaTitulo}>CONSUMIDO</Text>
 
-                <Text style={styles.areaDados}>500ml</Text>
+                <Text style={styles.areaDados}>{this.state.consumido}ml</Text>
               </View>
 
               <View style={styles.area}>
                 <Text style={styles.areaTitulo}>STATUS</Text>
 
-                <Text style={styles.areaDados}>RUIM</Text>
+                <Text style={styles.areaDados}>{this.state.status}</Text>
               </View>
             </View>
 
             <View style={styles.pctArea}>
-              <Text style={styles.pctText}>25%</Text>
+              <Text style={styles.pctText}>{this.state.pct}%</Text>
             </View>
 
             <View style={styles.btnArea}>
-              <Button title="Beber 200ml"></Button>
+              <Button title="Beber 200ml" onPress={this.addCopo}></Button>
             </View>
           </View>
         </ImageBackground>
@@ -75,7 +105,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   pctText: {
-    fontSize: 70,
+    fontSize: 90,
     color: "#ffffff",
     backgroundColor: "transparent",
   },
