@@ -12,14 +12,20 @@ export default class contadordeagua extends Component {
           <View style={styles.infoArea}>
             <View style={styles.area}>
               <Text style={styles.areaTitulo}>META</Text>
+
+              <Text style={styles.areaDados}>2000ml</Text>
             </View>
 
             <View style={styles.area}>
               <Text style={styles.areaTitulo}>CONSUMIDO</Text>
+
+              <Text style={styles.areaDados}>500ml</Text>
             </View>
 
             <View style={styles.area}>
               <Text style={styles.areaTitulo}>STATUS</Text>
+
+              <Text style={styles.areaDados}>RUIM</Text>
             </View>
           </View>
         </ImageBackground>
@@ -40,7 +46,7 @@ const styles = StyleSheet.create({
   infoArea: {
     flex: 1,
     flexDirection: "row",
-    marginTop: 50,
+    marginTop: 70,
   },
   area: {
     flex: 1,
@@ -48,5 +54,10 @@ const styles = StyleSheet.create({
   },
   areaTitulo: {
     color: "#45b2fc",
+  },
+  areaDados: {
+    color: "#2b4274",
+    fontSize: 15,
+    fontWeight: "bold",
   },
 });
