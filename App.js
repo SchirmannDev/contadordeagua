@@ -8,7 +8,15 @@ export default class contadordeagua extends Component {
         <ImageBackground
           source={require("./images/waterbg.png")}
           style={styles.bgimage}
-        ></ImageBackground>
+        >
+          <View style={styles.infoArea}>
+            <View style={styles.area}></View>
+
+            <View style={styles.area}></View>
+
+            <View style={styles.area}></View>
+          </View>
+        </ImageBackground>
       </View>
     );
   }
@@ -23,4 +31,9 @@ const styles = StyleSheet.create({
     flex: 1,
     width: null,
   },
+  infoArea: {
+    flex: 1,
+    flexDirection: "row",
+  },
+  area: {},
 });
