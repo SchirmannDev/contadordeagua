@@ -1,21 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from "react";
+import { View, Text, StyleSheet, ImageBackground } from "react-native";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+export default class contadordeagua extends Component {
+  render() {
+    return (
+      <View style={styles.body}>
+        <ImageBackground
+          source={require("./images/waterbg.png")}
+          style={styles.bgimage}
+        ></ImageBackground>
+      </View>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-  container: {
+  body: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 20,
+  },
+  bgimage: {
+    flex: 1,
+    width: null,
   },
 });
