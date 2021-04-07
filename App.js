@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, StyleSheet, ImageBackground } from "react-native";
+import { View, Text, StyleSheet, ImageBackground, Button } from "react-native";
 
 export default class contadordeagua extends Component {
   render() {
@@ -9,23 +9,33 @@ export default class contadordeagua extends Component {
           source={require("./images/waterbg.png")}
           style={styles.bgimage}
         >
-          <View style={styles.infoArea}>
-            <View style={styles.area}>
-              <Text style={styles.areaTitulo}>META</Text>
+          <View>
+            <View style={styles.infoArea}>
+              <View style={styles.area}>
+                <Text style={styles.areaTitulo}>META</Text>
 
-              <Text style={styles.areaDados}>2000ml</Text>
+                <Text style={styles.areaDados}>2000ml</Text>
+              </View>
+
+              <View style={styles.area}>
+                <Text style={styles.areaTitulo}>CONSUMIDO</Text>
+
+                <Text style={styles.areaDados}>500ml</Text>
+              </View>
+
+              <View style={styles.area}>
+                <Text style={styles.areaTitulo}>STATUS</Text>
+
+                <Text style={styles.areaDados}>RUIM</Text>
+              </View>
             </View>
 
-            <View style={styles.area}>
-              <Text style={styles.areaTitulo}>CONSUMIDO</Text>
-
-              <Text style={styles.areaDados}>500ml</Text>
+            <View style={styles.pctArea}>
+              <Text style={styles.pctText}>25%</Text>
             </View>
 
-            <View style={styles.area}>
-              <Text style={styles.areaTitulo}>STATUS</Text>
-
-              <Text style={styles.areaDados}>RUIM</Text>
+            <View style={styles.btnArea}>
+              <Button title="Beber 200ml"></Button>
             </View>
           </View>
         </ImageBackground>
@@ -59,5 +69,18 @@ const styles = StyleSheet.create({
     color: "#2b4274",
     fontSize: 15,
     fontWeight: "bold",
+  },
+  pctArea: {
+    marginTop: 200,
+    alignItems: "center",
+  },
+  pctText: {
+    fontSize: 70,
+    color: "#ffffff",
+    backgroundColor: "transparent",
+  },
+  btnArea: {
+    marginTop: 30,
+    alignItems: "center",
   },
 });
